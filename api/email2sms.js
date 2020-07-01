@@ -4,6 +4,11 @@ const addrs = require("email-addresses");
 const sgMail = require('@sendgrid/mail');
 const twilio = require('twilio');
 
+var currentTime = new Date().getHours();
+if (currentTime >= 22 && currentTime < 7) {
+   return;
+}
+
 module.exports = async (req, res) => { 
     const client = twilio(process.env.TWILIO_ACCOUNT_SID,process.env.TWILIO_AUTH_TOKEN);
     await util.promisify(multer().any())(req, res);
