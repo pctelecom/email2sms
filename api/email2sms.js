@@ -5,7 +5,7 @@ const sgMail = require('@sendgrid/mail');
 const twilio = require('twilio');
 
 var currentTime = new Date().getHours();
-if (currentTime >= 22 && currentTime < 7) {
+if (currentTime > 22 && currentTime < 7) {
    return;
 }
 
